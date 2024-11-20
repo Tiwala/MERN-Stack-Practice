@@ -50,6 +50,7 @@ export const useProductStore = create((set) => ({
         if (!data.success) {
             return { success: false, message: "Product update failed" };
         }
+        // makes it such that product updates immediately on the frontend without needing to refresh the page
         set((state) => ({
             products: state.products.map((product) =>
                 // If the product id matches the id of the product we want to update, return the updated product
