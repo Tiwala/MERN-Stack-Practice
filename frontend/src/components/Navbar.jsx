@@ -3,8 +3,11 @@ import { Button, Container, Flex, HStack, Text, useColorMode } from "@chakra-ui/
 import { Link } from "react-router-dom";
 import { IoMoon } from "react-icons/io5";
 import { LuSun } from "react-icons/lu";
+import { useProductStore } from "../store/product.js";
 
 const Navbar = () => {
+    const { products } = useProductStore();
+
     // chakra-UI hook
     const { colorMode, toggleColorMode } = useColorMode();
   return (
