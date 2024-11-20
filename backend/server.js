@@ -24,10 +24,10 @@ app.use(express.json());
 // Makes it such that this is the prefix for all routes in productRoutes
 app.use("/api/products", productRoutes);
 
-
+// Serve static assets if in production
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '/frontend/dist')));
-    // 
+    // '*' is a wildcard, meaning that any route that is not defined in the backend will be redirected to the frontend
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'));
     });
